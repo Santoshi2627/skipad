@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mycontainer{
+            position: relative;
+            /* position: relative; */
+            width: 640px;
+            height: 360px;
+
+        }
+       
+        #btn {
+            position: absolute;
+            right: 20px;
+            bottom: 60px;
+            padding: 0px 20px;
+            border-radius: 30px;
+            box-shadow: 0px 0px 5px;
+            display: none;
+        }
+        #vd{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="mycontainer">
+    <video id="myvd" width="640" height="360" controls>
+        <source src="./motorolaad.mp4" type="video/mp4"></video>
+        <button id="btn" onclick="skipAd()">skipAd</button>
+        <video id="vd" width="640" height="360" controls>
+            <source src="./teribatooon.mp4" type="video/mp4">
+
+        </video>
+    </div>
+        <script>
+            let video1=document.getElementById("myvd")
+            let btn=document.getElementById("btn")
+            let video2=document.getElementById("vd")
+            setTimeout(()=>{
+                btn.style.display="block"
+            },10000)
+            function skipAd() {
+            video1.currentTime = video2.duration; 
+            btn.style.display = "none"; 
+            // video1.muted = true;
+            // video1.style.display="none";
+            video2.style.display="block";
+            video2.play()
+            video1.style.display="none";
+            video1.muted = true;
+
+        }
+
+            
+        </script>
+</body>
+</html>
